@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# If the requested URL is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# If the requested URL is not an existing file
+RewriteCond %{REQUEST_FILENAME}.php -f
+# Rewrite to add the .php extension
+RewriteRule ^(.*)$ $1.php [L]
+
+# Custom 404 page for not found errors
+ErrorDocument 404 /error_404
